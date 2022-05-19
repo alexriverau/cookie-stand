@@ -1,0 +1,10 @@
+h1 {
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 5em;
+  font-weight: bolder;
+}
+
+img {
+  max-width: 40%;
+  max-height: 40%;
+}
