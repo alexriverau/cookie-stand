@@ -1,10 +1,9 @@
 'use strict';
 
-// Sales Data
+// SALES DATA TO DO
 // min hourly customers per location
 // max hourly customers per location
 // avg cookies per customer an hour at each location
-
 
 let storeHours = [
   '6am:',
@@ -63,25 +62,36 @@ function randNumber(min, max) {
 // console.log(randNumber(23, 65));
 
 function randNumberCust(location) {
-  // for (let i = 0; i < storeLocations.length; i++) {
-    // let storeLocation = storeLocations[i];
-    let randHourCust = (`${randNumber(location.minCust, location.maxCust)}`);
-    // console.log(randHourCust);
-    return randHourCust;
-  // }
+  let randHourCust = `${randNumber(location.minCust, location.maxCust)}`;
+  return randHourCust;
 }
 // randNumberCust();
 
-function hourlySales(location) {
-  for (let i = 0; i < storeHours.length; i++) {
-    let storeHour = storeHours[i];
-    let hour = (`${storeHour}`);
-    let cookiesSoldHour = (`${storeHour}, ${randNumberCust(location)}`);
-    // console.log(hour);
-    console.log(cookiesSoldHour);
+// TEST MATH.RANDOM
+// for (let i = 0; i < storeHours.length; i++) {
+//   let cookiesSold = `${storeHours[i]} ${randNumberCust(storeLocations[0])} cookies`;
+//   console.log(cookiesSold);
+// }
+// TEST LOCATIONS DISPLAY
+// for (let i = 0; i < storeLocations.length; i++) {
+//   let storeLocation = storeLocations[i];
+//   let locationSales = `${storeLocation.location}`;
+//   console.log(locationSales);
+// }
+
+function locationSales(location) {
+  for (let i = 0; i < storeLocations.length; i++) {
+    let storeLocation = storeLocations[i];
+    let locationCity = `${storeLocation.location}`;
+    console.log(locationCity);
+    for (let i = 0; i < storeHours.length; i++) {
+      let storeHour = storeHours[i];
+      let storeSales = `${storeHour} ${randNumberCust(location)} cookies`;
+      console.log(storeSales);
+    }
   }
 }
-hourlySales(storeLocations[0]);
+locationSales(storeLocations[0]);
 
 // let salesSeattle = document.createElement('li');
 // salesSeattle.innerText = `${storeHours}`;
