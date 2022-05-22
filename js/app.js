@@ -89,7 +89,9 @@ function locationSales(location) {
     for (let i = 0; i < storeHours.length; i++) {
       let storeHour = storeHours[i];
       // console.log(storeHour);
-      let randCustomer = Math.round(location.minCust + Math.random() * (location.maxCust - location.minCust));
+      let randCustomer = Math.round(
+        location.minCust + Math.random() * (location.maxCust - location.minCust)
+      );
       // console.log(randCustomer);
       let randAvg = Math.round(randCustomer * location.avgCookies);
       // console.log(randAvg);
@@ -99,8 +101,3 @@ function locationSales(location) {
   }
 }
 locationSales(storeLocations[0]);
-
-// let salesSeattle = document.createElement('li');
-// salesSeattle.innerText = `${storeHours}`;
-// console.log(salesSeattle);
-// document.getElementById('seattle').appendChild(salesSeattle);
