@@ -100,7 +100,8 @@ function locationSales(location) {
 }
 locationSales(storeLocations[0]);
 
+
 // let salesSeattle = document.createElement('li');
-// salesSeattle.innerText = `${storeHours}`;
+// salesSeattle.innerText = `${storeHour}`
 // console.log(salesSeattle);
-// document.getElementById('seattle').appendChild(salesSeattle);
+// // document.getElementById('seattle').appendChild(salesSeattle);
