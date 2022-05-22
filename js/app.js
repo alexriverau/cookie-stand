@@ -1,29 +1,29 @@
 'use strict';
 
-function randCustomer(min, max) {
-  return Math.floor(min + Math.random() * (max - min));
-}
-console.log(randCustomer(23, 65));
+// SALES DATA TO DO
+// min hourly customers per location
+// max hourly customers per location
+// avg cookies per customer an hour at each location
 
 let storeHours = [
-  '6am',
-  '7am',
-  '8am',
-  '9am',
-  '10am',
-  '11am',
-  '12pm',
-  '1pm',
-  '2pm',
-  '3pm',
-  '4pm',
-  '5pm',
-  '6pm',
-  '7pm',
-  '8pm',
+  '6am:',
+  '7am:',
+  '8am:',
+  '9am:',
+  '10am:',
+  '11am:',
+  '12pm:',
+  '1pm:',
+  '2pm:',
+  '3pm:',
+  '4pm:',
+  '5pm:',
+  '6pm:',
+  '7pm:',
+  '8pm:',
 ];
 
-let salesLocations = [
+let storeLocations = [
   {
     location: 'Seattle',
     minCust: 23,
@@ -56,17 +56,44 @@ let salesLocations = [
   },
 ];
 
-function cookieSales() {
-  for (let i = 0; i < salesLocations.length; i++) {
-    let salesLocation = salesLocations[i];
-  }
+function randNumber(min, max) {
+  return Math.floor(min + Math.random() * (max - min));
 }
+// console.log(randNumber(23, 65));
 
-// for (let i = 0; s < storeHours.length; i++) {
-//   let storeHour = storeHours[i];
+function randNumberCust(location) {
+  let randHourCust = `${randNumber(location.minCust, location.maxCust)}`;
+  return randHourCust;
+}
+// randNumberCust();
+
+// TEST MATH.RANDOM
+// for (let i = 0; i < storeHours.length; i++) {
+//   let cookiesSold = `${storeHours[i]} ${randNumberCust(storeLocations[0])} cookies`;
+//   console.log(cookiesSold);
+// }
+// TEST LOCATIONS DISPLAY
+// for (let i = 0; i < storeLocations.length; i++) {
+//   let storeLocation = storeLocations[i];
+//   let locationSales = `${storeLocation.location}`;
+//   console.log(locationSales);
 // }
 
-let salesSeattle = document.createElement('li');
-salesSeattle.innerText = `${storeHours}`;
-console.log(salesSeattle);
-document.getElementById('seattle').appendChild(salesSeattle);
+function locationSales(location) {
+  for (let i = 0; i < storeLocations.length; i++) {
+    let storeLocation = storeLocations[i];
+    let locationCity = `${storeLocation.location}`;
+    console.log(locationCity);
+    for (let i = 0; i < storeHours.length; i++) {
+      let storeHour = storeHours[i];
+      let storeSales = `${storeHour} ${randNumberCust(location)} cookies`;
+      console.log(storeSales);
+    }
+  }
+}
+locationSales(storeLocations[0]);
+
+// let salesSeattle = document.createElement('li');
+// salesSeattle.innerText = `${storeHours}`;
+// console.log(salesSeattle);
+// document.getElementById('seattle').appendChild(salesSeattle);
