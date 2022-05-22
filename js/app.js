@@ -56,18 +56,20 @@ let storeLocations = [
   },
 ];
 
-function randNumber(min, max) {
-  return Math.floor(min + Math.random() * (max - min));
-}
+// MATH RANDOM REFERENCE
+// function randNumber(min, max) {
+//   return Math.floor(min + Math.random() * (max - min));
+// }
 // console.log(randNumber(23, 65));
 
-function randNumberCust(location) {
-  let randHourCust = `${randNumber(location.minCust, location.maxCust)}`;
-  return randHourCust;
-}
+// MATH RANDOM TEST
+// function randNumberCust(location) {
+//   let randHourCust = `${randNumber(location.minCust, location.maxCust)}`;
+//   return randHourCust;
+// }
 // randNumberCust();
 
-// TEST MATH.RANDOM
+// TEST COOKIES PER HOUR DISPLAY
 // for (let i = 0; i < storeHours.length; i++) {
 //   let cookiesSold = `${storeHours[i]} ${randNumberCust(storeLocations[0])} cookies`;
 //   console.log(cookiesSold);
@@ -86,7 +88,12 @@ function locationSales(location) {
     console.log(locationCity);
     for (let i = 0; i < storeHours.length; i++) {
       let storeHour = storeHours[i];
-      let storeSales = `${storeHour} ${randNumberCust(location)} cookies`;
+      // console.log(storeHour);
+      let randCustomer = Math.round(location.minCust + Math.random() * (location.maxCust - location.minCust));
+      // console.log(randCustomer);
+      let randAvg = Math.round(randCustomer * location.avgCookies);
+      // console.log(randAvg);
+      let storeSales = `${storeHour} ${randAvg} cookies`;
       console.log(storeSales);
     }
   }
