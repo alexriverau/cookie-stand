@@ -62,6 +62,31 @@ let storeLocations = [
   },
 ];
 
+function locationSales(location) {
+  for (let i = 0; i < storeLocations.length; i++) {
+    let storeLocation = storeLocations[i];
+    let cityLi = document.createElement('li');
+    cityLi.innerText = `${storeLocation.location}`;
+    document.getElementById('city').appendChild(cityLi);
+    for (let i = 0; i < storeHours.length; i++) {
+      let storeHour = storeHours[i];
+      // console.log(storeHour);
+      let randCustomer = Math.round(
+        location.minCust + Math.random() * (location.maxCust - location.minCust)
+      );
+      // console.log(randCustomer);
+      let randAvg = Math.round(randCustomer * location.avgCookies);
+      // console.log(randAvg);
+      let storeSales = `${storeHour} ${randAvg} cookies`;
+      // console.log(storeSales);
+      let salesLi = document.createElement('li');
+      salesLi.innerText = `${storeSales}`;
+      document.getElementById('city').appendChild(salesLi);
+    }
+  }
+}
+locationSales(storeLocations[0]);
+
 // MATH RANDOM TEST
 // function randNumberCust(location) {
 //   let randHourCust = `${randNumber(location.minCust, location.maxCust)}`;
@@ -80,46 +105,3 @@ let storeLocations = [
 //   let locationSales = `${storeLocation.location}`;
 //   console.log(locationSales);
 // }
-
-function locationSales(location) {
-  for (let i = 0; i < storeLocations.length; i++) {
-    let storeLocation = storeLocations[i];
-    let locationCity = `${storeLocation.location}`;
-    // console.log(locationCity);
-    for (let i = 0; i < storeHours.length; i++) {
-      let storeHour = storeHours[i];
-      // console.log(storeHour);
-      let randCustomer = Math.round(
-        location.minCust + Math.random() * (location.maxCust - location.minCust)
-      );
-      // console.log(randCustomer);
-      let randAvg = Math.round(randCustomer * location.avgCookies);
-      // console.log(randAvg);
-      let storeSales = `${storeHour} ${randAvg} cookies`;
-      // console.log(storeSales);
-    }
-  }
-}
-locationSales(storeLocations[0]);
-
-for (let i = 0; i < storeLocations.length; i++) {
-  let storeLocation = storeLocations[i];
-  // console.log(storeLocation);
-  let cityLi = document.createElement('li');
-  cityLi.innerText = `${storeLocation.location}`;
-  document.getElementById('city').appendChild(cityLi);
-}
-
-// function render(city) {
-//   let outerUl = document.createElement('ul');
-//   outerUl.innerText = `${storeLocations.location}`;
-//   console.log(outerUl);
-  
-  // let hourLi = document.createElement('li');
-  // hourLi.innerText = 'City';
-  // outerUl.appendChild(hourLi);
-
-  // document.body.appendChild(outerUl);
-// }
-// render(storeLocations[0]);
-

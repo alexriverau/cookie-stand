@@ -3,17 +3,36 @@
   font-size: 5em;
   font-weight: bolder;
 } */
-
+/* 
 img {
   max-width: 40%;
   max-height: 40%;
+} */
+
+header {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: left;
+  font-size: 3em;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
-ul {
-  grid-column-start: 1;
+img {
+  max-width: 18%;
+  max-height: 18%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
 }
 
 li {
-  grid-column-start: 2;
-  margin: 0;
+  font-family:sans-serif;
+  list-style: none;
+  text-align: center;
+  border: solid;
+  padding: .2rem;
+  margin-top: -1px;
+  margin-bottom: -1px;
+  margin-left: auto;
+  margin-right: 850px;
 }
