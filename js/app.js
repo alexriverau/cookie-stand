@@ -5,6 +5,12 @@
 // max hourly customers per location
 // avg cookies per customer an hour at each location
 
+// MATH RANDOM REFERENCE
+// function randNumber(min, max) {
+//   return Math.floor(min + Math.random() * (max - min));
+// }
+// console.log(randNumber(23, 65));
+
 let storeHours = [
   '6am:',
   '7am:',
@@ -56,12 +62,6 @@ let storeLocations = [
   },
 ];
 
-// MATH RANDOM REFERENCE
-// function randNumber(min, max) {
-//   return Math.floor(min + Math.random() * (max - min));
-// }
-// console.log(randNumber(23, 65));
-
 // MATH RANDOM TEST
 // function randNumberCust(location) {
 //   let randHourCust = `${randNumber(location.minCust, location.maxCust)}`;
@@ -85,7 +85,7 @@ function locationSales(location) {
   for (let i = 0; i < storeLocations.length; i++) {
     let storeLocation = storeLocations[i];
     let locationCity = `${storeLocation.location}`;
-    console.log(locationCity);
+    // console.log(locationCity);
     for (let i = 0; i < storeHours.length; i++) {
       let storeHour = storeHours[i];
       // console.log(storeHour);
@@ -96,8 +96,30 @@ function locationSales(location) {
       let randAvg = Math.round(randCustomer * location.avgCookies);
       // console.log(randAvg);
       let storeSales = `${storeHour} ${randAvg} cookies`;
-      console.log(storeSales);
+      // console.log(storeSales);
     }
   }
 }
 locationSales(storeLocations[0]);
+
+for (let i = 0; i < storeLocations.length; i++) {
+  let storeLocation = storeLocations[i];
+  // console.log(storeLocation);
+  let cityLi = document.createElement('li');
+  cityLi.innerText = `${storeLocation.location}`;
+  document.getElementById('city').appendChild(cityLi);
+}
+
+// function render(city) {
+//   let outerUl = document.createElement('ul');
+//   outerUl.innerText = `${storeLocations.location}`;
+//   console.log(outerUl);
+  
+  // let hourLi = document.createElement('li');
+  // hourLi.innerText = 'City';
+  // outerUl.appendChild(hourLi);
+
+  // document.body.appendChild(outerUl);
+// }
+// render(storeLocations[0]);
+
