@@ -25,6 +25,11 @@ img {
   margin-bottom: 30px;
 }
 
+ul {
+  font-weight: bolder;
+  font-size: larger;  
+}
+
 li {
   font-family:sans-serif;
   list-style: none;
