@@ -1,27 +1,24 @@
 'use strict';
 
-// COOKIE STAND SALES
-// min hourly customers per location
-// max hourly customers per location
-// avg cookies per customer an hour at each location
-
 let hours = [
-  '6am:',
-  '7am:',
-  '8am:',
-  '9am:',
-  '10am:',
-  '11am:',
-  '12pm:',
-  '1pm:',
-  '2pm:',
-  '3pm:',
-  '4pm:',
-  '5pm:',
-  '6pm:',
-  '7pm:',
-  '8pm:',
+  '6am',
+  '7am',
+  '8am',
+  '9am',
+  '10am',
+  '11am',
+  '12pm',
+  '1pm',
+  '2pm',
+  '3pm',
+  '4pm',
+  '5pm',
+  '6pm',
+  '7pm',
+  '8pm',
 ];
+
+let tableElem = document.getElementById('sales-table');
 
 function CookieStand(location, minCust, maxCust, avgCookies) {
   this.location = location;
@@ -31,16 +28,15 @@ function CookieStand(location, minCust, maxCust, avgCookies) {
   this.custPerHour = [];
   this.cookiesPerHour = [];
   this.totalCookies = 0;
-  // CookieStand.all.push(this);
+  CookieStand.all.push(this);
 }
 
-let seattle = new CookieStand('Seattle', 23, 65, 6.3);
-let tokyo = new CookieStand('Tokyo', 3, 24, 1.2);
-let dubai = new CookieStand('Dubai', 11, 38, 3.7);
-let paris = new CookieStand('Paris', 20, 38, 2.3);
-let lima = new CookieStand('Lima', 2, 16, 4.6);
-
-// console.log(seattle, tokyo, dubai, paris, lima);
+CookieStand.all = [];
+new CookieStand('Seattle', 23, 65, 6.3);
+new CookieStand('Tokyo', 3, 24, 1.2);
+new CookieStand('Dubai', 11, 38, 3.7);
+new CookieStand('Paris', 20, 38, 2.3);
+new CookieStand('Lima', 2, 16, 4.6);
 
 CookieStand.prototype.calcRandCust = function () {
   for (let i = 0; i < hours.length; i++) {
@@ -58,32 +54,75 @@ CookieStand.prototype.calcRandCookies = function () {
     this.totalCookies += oneHour;
   }
 };
-seattle.calcRandCookies();
-tokyo.calcRandCookies();
-dubai.calcRandCookies();
-paris.calcRandCookies();
-lima.calcRandCookies();
 
 CookieStand.prototype.render = function () {
-  let containerElem = document.getElementById('target-body');
+  this.calcRandCookies();
   let rowElem = document.createElement('tr');
   let dataElem = document.createElement('td');
   dataElem.innerText = this.location;
   rowElem.appendChild(dataElem);
-  containerElem.appendChild(rowElem);
 
-  for (let i = 0; i < this.cookiesPerHour.length; i++) {
+  for (let i = 0; i < hours.length; i++) {
     let dataElem = document.createElement('td');
     dataElem.innerText = this.cookiesPerHour[i];
     rowElem.appendChild(dataElem);
-    containerElem.appendChild(rowElem);
   }
+  let totalHeader = document.createElement('th');
+  totalHeader.innerText = this.totalCookies;
+  rowElem.appendChild(totalHeader);
+  tableElem.appendChild(rowElem);
 };
-seattle.render();
-tokyo.render();
-dubai.render();
-paris.render();
-lima.render();
+
+function headerRow() {
+  let tableRow = document.createElement('tr');
+  let tableHeader = document.createElement('th');
+  tableHeader.innerText = '';
+  tableRow.appendChild(tableHeader);
+  for (let i = 0; i < hours.length; i++) {
+    tableHeader = document.createElement('th');
+    tableHeader.innerText = hours[i];
+    tableRow.appendChild(tableHeader);
+  }
+  tableHeader = document.createElement('th');
+  tableHeader.innerText = 'Daily Total';
+  tableRow.appendChild(tableHeader);
+  tableElem.appendChild(tableRow);
+}
+
+function footerRow() {
+  let tableRow = document.createElement('tr');
+  let tableHeader = document.createElement('th');
+  tableHeader.innerText = 'Totals';
+  tableRow.appendChild(tableHeader);
+  let grandTotal = 0;
+  for (let i = 0; i < hours.length; i++) {
+    let hourlyTotal = 0;
+    for (let j = 0; j < CookieStand.all.length; j++) {
+      hourlyTotal += CookieStand.all[j].cookiesPerHour[i];
+      grandTotal += CookieStand.all[j].cookiesPerHour[i];
+    }
+    tableHeader = document.createElement('th');
+    tableHeader.innerText = hourlyTotal;
+    tableRow.appendChild(tableHeader);
+  }
+  tableHeader = document.createElement('th');
+  tableHeader.innerText = grandTotal;
+  tableRow.appendChild(tableHeader);
+  tableElem.appendChild(tableRow);
+}
+
+function renderContent() {
+  headerRow();
+  for (let i = 0; i < CookieStand.all.length; i++) {
+    CookieStand.all[i].render();
+  }
+  footerRow();
+}
+renderContent();
+
+
+
+
 
 // LAB_06
 

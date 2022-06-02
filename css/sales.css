@@ -44,19 +44,30 @@ table {
   margin-bottom: 80px;
   margin-right: auto;
   margin-left: auto;
+  border: 1px solid rgb(236, 150, 141);
 }
+
 th {
+  padding-top: 10px;
   padding-bottom: 10px;
   padding-right: 10px;
   font-weight: bolder;
-}
-td {
+  align-content: space-around;
   border: 1px solid rgb(236, 150, 141);
-  padding-left: 20px;
-  padding-right: 30px;
+}
+
+tr {
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+
+td {
+  padding-left: 10px;
+  padding-right: 15px;
   padding-top: 10px;
   padding-bottom: 10px;
-  align-items: flex-end;
+  text-align: left;
+  border: 1px solid rgb(236, 150, 141);
 }
 
 footer {
