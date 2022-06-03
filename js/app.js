@@ -120,10 +120,6 @@ function renderContent() {
 }
 renderContent();
 
-
-
-
-
 // LAB_06
 
 // let storeHours = [
