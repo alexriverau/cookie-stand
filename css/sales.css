@@ -59,6 +59,12 @@ h1 {
   width: 50px;
 }
 
+#location,
+#min-cust,
+#max-cust {
+  margin-right: 30px;
+}
+
 #submit {
   display: flex;
   justify-content: center;

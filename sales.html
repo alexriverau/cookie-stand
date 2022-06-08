@@ -23,19 +23,19 @@
     <table id="sales-table"></table>
 
     <div class="form">
-      <form id="new-store-form">
+      <form id="form-new-store">
         <fieldset>
           <legend id="create-store">Create New Store:</legend>
 
-          <label for="name">Store Location:</label>
-          <input name="name" id="location" type="text" required="required" />
+          <label for="name">Location:</label>
+          <input name="name" id="location" type="text" required />
 
           <label for="minCust">Min Customers / hour:</label>
           <input
             name="minCust"
             id="min-cust"
             type="number"
-            required="required"
+            required
           />
 
           <label for="maxCust">Max Customers / hour:</label>
@@ -43,7 +43,7 @@
             name="maxCust"
             id="max-cust"
             type="number"
-            required="required"
+            required
           />
 
           <label for="avgCookies">Average Cookies / hour:</label>
@@ -51,7 +51,7 @@
             name="avgCookies"
             id="avg-cookies"
             type="number"
-            required="required"
+            required
           />
           <button id="submit" type="submit">SUBMIT</button>
         </fieldset>
