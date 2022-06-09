@@ -18,7 +18,7 @@ let hours = [
   '8pm',
 ];
 
-let tableElem = document.getElementById('sales-table');
+let tableElem = document.getElementById('table');
 
 function CookieStand(location, minCust, maxCust, avgCookies) {
   this.location = location;
@@ -123,10 +123,11 @@ function onSubmit(event) {
 
   let newStore = new CookieStand(location, minCust, maxCust, avgCookies);
 
-  CookieStand.all.push(newStore);
-  console.log(CookieStand.all);
-
   newStore.render();
+
+  tableElem.deleteTFoot();
+
+  footerRow();
 }
 document.getElementById('form-new-store').addEventListener('submit', onSubmit);
 
