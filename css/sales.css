@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Open+Sans:wght@400;700&display=swap');
 
 html {
   font-family: 'Source Sans Pro';
   height: 100%;
   width: fit-content;
+}
+
+body {
+  background-color: rgb(222, 218, 218);
 }
 
 header {
@@ -76,6 +81,9 @@ h1 {
 }
 
 table {
+  font-family: 'Open Sans', sans-serif;
+  font-size: small;
+  color: rgb(42, 42, 42);
   max-width: 1000px;
   margin-top: 50px;
   margin-bottom: 50px;
@@ -92,6 +100,7 @@ th {
   font-weight: bolder;
   align-content: space-around;
   border: 1px solid rgb(236, 150, 141);
+  background-color: rgb(233, 233, 239);
 }
 
 tr {
@@ -106,6 +115,7 @@ td {
   padding-bottom: 10px;
   text-align: left;
   border: 1px solid rgb(236, 150, 141);
+  background-color: rgb(241, 241, 227);
 }
 
 footer {
